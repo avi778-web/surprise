@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Anniversary</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #1a1a1a, #333, #111);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+    h1 {
+      margin-top: 40px;
+      font-size: 3em;
+      color: #ff3366;
+      text-shadow: 2px 2px 8px rgba(255, 51, 102, 0.8);
+    }
+    #celebration {
+      display: none;
+      margin-top: 30px;
+    }
+    #photo {
+      width: 320px;
+      border: 10px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 51, 102, 0.9);
+    }
+    #message {
+      margin-top: 25px;
+      font-size: 1.6em;
+      color: #ffccff;
+      text-shadow: 1px 1px 6px rgba(255,255,255,0.6);
+    }
+    button {
+      margin-top: 50px;
+      padding: 15px 35px;
+      font-size: 1.3em;
+      background: #ff3366;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 51, 102, 0.7);
+    }
+    button:hover {
+      background: #ff6699;
+      box-shadow: 0 0 25px rgba(255, 102, 153, 0.9);
+    }
+    .heart {
+      position: absolute;
+      font-size: 26px;
+      color: #ff3366;
+      animation: floatUp 7s linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-700px) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Happy Anniversary 💖</h1>
+  <button onclick="startCelebration()">Click for Surprise 🎁</button>
+
+  <div id="celebration">
+    <img id="photo" src="c:\Users\Deepak Singh\Pictures\Screenshots\Screenshot 2026-03-02 113117.png" alt="Anniversary Photo">
+    <div id="message">You came into my life and changed everything 💕</div>
+  </div>
+
+  <!-- Hidden audio (no controls, no text) -->
+  <audio id="music" loop style="display:none;">
+    <source src="https://cdn.pixabay.com/download/audio/2023/04/18/audio_128f6f.mp3?filename=romantic-piano-14304.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function startCelebration() {
+      document.getElementById("celebration").style.display = "block";
+
+      // Play song directly on click
+      const music = document.getElementById("music");
+      music.play().catch(err => console.log("Playback blocked:", err));
+
+      // Floating hearts
+      for (let i = 0; i < 25; i++) {
+        createHeart();
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.top = window.innerHeight + "px";
+      heart.style.animationDuration = (5 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }
+  </script>
+</body>
+</html>
