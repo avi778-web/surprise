@@ -1,5 +1,5 @@
 index.html
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -15,7 +15,7 @@ index.html
       overflow: hidden;
     }
     h1 {
-      margin-top: 20%;
+      margin-top: 15%;
       font-size: 3em;
       text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
       animation: glitch 1s infinite;
@@ -37,13 +37,31 @@ index.html
       font-size: 18px;
       pointer-events: none;
     }
+    .footer {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5em;
+      color: red;
+      text-shadow: 0 0 10px red, 0 0 20px darkred;
+      animation: flicker 1.5s infinite;
+    }
+    @keyframes flicker {
+      0%, 19%, 21%, 50%, 52%, 100% { opacity: 1; }
+      20%, 51% { opacity: 0.4; }
+    }
   </style>
 </head>
 <body>
   <h1>📱 Hacked Phone 📱</h1>
   <canvas class="matrix"></canvas>
+  <div class="footer">Hacked by Avi</div>
 
   <script>
+    // Alert popup
+    alert("⚠️ Phone Hacked!");
+
     // Matrix rain effect
     const canvas = document.querySelector(".matrix");
     const ctx = canvas.getContext("2d");
